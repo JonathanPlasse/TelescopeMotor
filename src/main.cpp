@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#include <TeensyStep.h>
 
-void setup() {
-  // put your setup code here, to run once:
+Stepper motor(20, 21);       // STEP pin: 2, DIR pin: 3
+StepControl controller;    // Use default settings
+
+void setup()
+{
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  motor.setTargetRel(1000);  // Set target position to 1000 steps from current position
+  controller.move(motor);    // Do the move
+  delay(500);
 }
